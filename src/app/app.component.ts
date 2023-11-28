@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'authentication-CRUD';
+constructor(private authService: AuthenticationService) {
+  this.authService.getAllUsers().subscribe((users)=>console.log(users))
+ }
 }
